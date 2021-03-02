@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/reset.css">
+        <link rel="stylesheet" href="styles/base.css">
+        <title>Book APi</title>
+    </head>
+<body>
+
+    <header>
+        <nav>
+            <h1> Best Books! </h1>
+            <a href="/searches/new">Search</a>
+            <a href="/">Home</a>
+        </nav>
+    </header>
+    <p id="conut">Count: <%=savedBook.rowCount;%> </p>
+    <br><br><br>
+    <div class="parent">
+        <% savedBook.rows.forEach(valueData =>{%>
+            <div class="child">
+            <img src="<%= valueData.image_url;%>" alt=""><br>
+            <h2 class="title"><%= valueData.title;%></h2><br>
+            <h2><%= valueData.authors;%> </h2><br>
+            <p><%= valueData.description;%> </p><br>
+            <form action="/books/<%=valueData.id%>" method="get">
+            <button type="submit">View</button>
+            </form>
+        </div>
+            <% }); %>
+</div >
+
+
+
+</body>
+
+</html>

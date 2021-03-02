@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/base.css">
+    <title>Book APi</title>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <h1>Best Books! </h1>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="header">
+            <h1> Search By Tilte Or Author </h1>
+        </div>
+        <div class="form-contanier">
+
+            <form action="/searches" method="post">
+                <div claas="searh">
+                    <input type="text" name="search" placeholder="Enter title or author name">
+                </div>
+                <div class="check-cont">
+                    <div class="checkbox">
+                        <label for="title-radio">Title</label>
+                        <input type="radio" name="title" value="title">
+                    </div>
+                    <div class="checkbox">
+                        <label for="auther-radio">Author</label>
+                        <input type="radio" name="title" value="author">
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" id="subbtn" Value="Search the Google Books API">
+                </div>
+            </form>
+
+
+
+
+
+        </div>
+    </div>
+
+    <footer>
+        <ul>
+            <li> <i class="fas fa-circle"></i></li>
+            <li> <i class="fas fa-circle"></i></li>
+            <li> <i class="fas fa-circle"></i></li>
+            <li> <i class="fas fa-circle"></i></li>
+            <li> <i class="fas fa-circle"></i></li>
+        </ul>
+    </footer>
+
+
+
+
+</body>
+
+</html>

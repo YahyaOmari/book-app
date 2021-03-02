@@ -1,0 +1,27 @@
+header{
+    color: white;
+    height:60px;
+    font-size:30px;
+    text-align: left;
+    /* position: fixed; */
+}
+h1{
+    /* margin-left:50px;
+    margin-top:50px; */
+}
+h2{
+    font-weight:bolder;
+}
+.title{
+    color: white;
+}
+p{
+    font-weight:300;
+}
+form{
+    padding: 25px;
+    text-align: center;
+}
+body{
+    background-color: rgb(161, 160, 160);
+}
