@@ -54,7 +54,7 @@ nav a{
     justify-content: center;
     justify-content: space-around;
     text-align: center;
-    width: 100px;
+    width: 500px;
     margin-left: auto;
     margin-right: auto;
     background-color: rgb(68, 68, 68);
@@ -73,7 +73,20 @@ nav a{
     width: 500px;
     padding: 30px;
     background-color: rgb(214, 213, 213);
-  }
+}
+.formEdit{
+    border-radius: 5%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;    
+    background-color: #D8D8D8;
+    box-shadow: 10px 7px 5px grey;
+    width: 500px;
+    padding: 30px;
+    background-color: rgb(214, 213, 213);
+    margin-left: auto;
+    margin-right: auto;
+}
 img{
       border: white solid 7px;
   }
@@ -100,3 +113,34 @@ body{
         font-size:20px;
     }
 }
+
+input{
+    border-radius: 10px;
+    font-size: 16px;
+    font-size: max(16px, 1em);
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    background-color: #fff;
+    border: 2px solid black;
+    border-radius: 4px;
+}
+button{
+    padding:0.35em 1.2em;
+    border:0.1em solid #FFFFFF;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:500;
+    color:#0003a3;
+    text-align:center;
+}
+button:hover{
+    color:#FFFFFF;
+    background-color:#000000;
+}
+/* #form1 {
+
+    display:none;
+}     */

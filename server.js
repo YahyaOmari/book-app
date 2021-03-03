@@ -2,6 +2,7 @@
 const express = require('express');
 const cors = require('cors');
 const superAgent = require('superagent');
+const override = require('method-override');
 // const { search } = require('superagent');
 
 
@@ -9,6 +10,7 @@ let app = express();
 app.use(cors());
 app.set('view engine', 'ejs');
 require('dotenv').config();
+app.use(override("_method"));
 const PORT = process.env.PORT;
 
 //
@@ -28,6 +30,9 @@ app.post('/searches', handleShow);
 
 app.post('/books', favBook);
 app.get('/books/:id', detailsButton);
+
+app.put('/books/:id', updateHandle);
+app.delete('/books/:id', deleteHandle);
 
 
 function handleSearch(req, res) {
@@ -117,10 +122,42 @@ function favRender(req, res) {
   });
 }
 
+
+function updateHandle(req,res) {
+  let id = req.params.id;
+  let reqBody = req.body;
+
+  let queryUpdate = `UPDATE books SET author=$1, title=$2, isbn=$3, description=$4 WHERE id=$5;`;
+  let safeValues = [reqBody.authors, reqBody.title, reqBody.isbn, reqBody.description, id];
+
+  client.query(queryUpdate, safeValues)
+    .then(() => {
+      res.redirect(`/books/${id}`)
+    })
+    .catch(error => {
+      console.log(`Error while updating the data, ${error}`);
+    })
+}
+
+function deleteHandle(req,res) {
+  let id = req.params.id;
+  let deleteQuery = 'DELETE FROM books WHERE id=$1';
+  let safeValues = [id];
+
+  client.query(deleteQuery, safeValues)
+    .then(() => {
+      res.redirect("/");
+    })
+    .catch(error => {
+      console.log("Error occurred while deleting from Database", error);
+    })
+  
+}
+
 function detailsButton(req, res) {
   let id = req.params.id;
   client.query(`SELECT * FROM books WHERE id = ${id}`).then(data => {
 
-    res.render('pages/books/show', { bookDetails: data.rows });
+    res.render('pages/books/show', { bookDetails: data.rows[0] });
   })
 }

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../styles/reset.css">
-        <link rel="stylesheet" href="../styles/base.css">
-        <title>Book APi</title>
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/base.css">
+    <title>Book APi</title>
+</head>
 
 <body class="result">
     <header>
@@ -21,20 +22,43 @@
         Google Search
     </nav>
     <div class="parent">
-        <% bookDetails.forEach(valueData =>{%>
-            <div class="child">
-            <img src="<%= valueData.image_url;%>" alt=""><br>
-            <h2 class="title"><%= valueData.title;%></h2><br>
-            
-            <h3><%= valueData.author;%> </h3><br>
-            <p><%= valueData.description;%> </p><br>
-            <p><%= valueData.isbn;%> </p><br>
-            <button>Update Details</button>
+        <div class="child">
+            <img src="<%= bookDetails.image_url;%>" alt=""><br>
+            <h2 class="title">
+                <%= bookDetails.title;%>
+            </h2><br>
+
+            <h3> 
+                <%= bookDetails.author;%>
+            </h3><br>
+            <p>
+                <%= bookDetails.description;%>
+            </p><br>
+            <p>
+                <%= bookDetails.isbn;%>
+            </p><br>
+            <form action="/books/<%= bookDetails.id %>?_method=DELETE" method="POST">
+                <button class="delete-button" type="submit">Delete Book</button>
+            </form>
+            <div>
+                <button type="submit">Update book</button>
+            </div>
         </div>
-            <% }); %>
-</div >
+    </div>
+    <%- include ("edit")%>
 
+<!-- <script>
+    $(document).ready(function() {
+        $("#formButton").click(function() {
+            $("#form1").toggle();
+        });
+    });
 
+    $("#formButton").click(function(){
+        $("#form1").toggle();
+    });
+</script> -->
 </body>
+
 
 </html>
